@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./medicine-dosage.component.css']
 })
 export class MedicineDosageComponent implements OnInit {
+  amount: any;
+  time: any;
 
   constructor() { }
+
 
   ngOnInit(): void {
   }
 
+  log(value: string[]): void {
+    console.log(value);
+  }
+
+  save() {
+    console.log(this.amount + this.time)
+  }
 }

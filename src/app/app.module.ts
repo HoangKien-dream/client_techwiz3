@@ -21,6 +21,13 @@ import {NzModalModule} from "ng-zorro-antd/modal";
 import {ContactUsComponent } from './component/contact-us/contact-us.component';
 import {MedicineDosageComponent } from './component/medicine-dosage/medicine-dosage.component';
 import {AppointmentsComponent } from './component/appointments/appointments.component';
+import { AppointmentCreateComponent } from './component/appointment-create/appointment-create.component';
+import { AppointmentUpdateComponent } from './component/appointment-update/appointment-update.component';
+import {NzInputModule} from "ng-zorro-antd/input";
+import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
+import {NzButtonModule} from "ng-zorro-antd/button";
+import {NzCheckboxModule} from "ng-zorro-antd/checkbox";
+
 
 registerLocaleData(en);
 
@@ -35,7 +42,9 @@ registerLocaleData(en);
     HealthVitalsComponent,
     ContactUsComponent,
     MedicineDosageComponent,
-    AppointmentsComponent
+    AppointmentsComponent,
+    AppointmentCreateComponent,
+    AppointmentUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,11 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzModalModule
+    NzModalModule,
+    NzInputModule,
+    NzDatePickerModule,
+    NzButtonModule,
+    NzCheckboxModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

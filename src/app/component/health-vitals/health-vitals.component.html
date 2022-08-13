@@ -121,35 +121,38 @@
               <div class="card-header">
                 <h4 class="card-title float-start">Medical details</h4>
                 <button class="btn btn-primary float-end" (click)="showModal()">Add Details</button>
-                <nz-modal [(nzVisible)]="isVisible" nzFooter=" " nzWidth="550px" nzTitle="Add new data" (nzOnCancel)="handleCancel()"
+                <nz-modal [(nzVisible)]="isVisible" nzFooter=" " nzWidth="550px" nzTitle="Health Vitals" (nzOnCancel)="handleCancel()"
                           (nzOnOk)="handleOk()">
                   <ng-container *nzModalContent>
                     <div class="modal-body">
                       <div class="modal-body">
                         <div>
-                          <form action="#" enctype="multipart/form-data" autocomplete="off" method="post">
                             <div class="modal-body"><input type="hidden" name="id" value="true"><input type="hidden"
                                                                                                        name="method"
                                                                                                        value="insert">
-                              <div class="form-group"><label class="control-label mb-10"> BMI <span class="text-danger">*</span></label><input
-                                type="text" name="bmi" class="form-control" value="23.7"></div>
-                              <div class="form-group"><label class="control-label mb-10">Heart rate </label><input
-                                type="text" name="hr" class="form-control" value="89"></div>
-                              <div class="form-group"><label class="control-label mb-10">Weight</label><input
-                                type="text" name="Weight" class="form-control" value="74"></div>
-                              <div class="form-group"><label class="control-label mb-10">Fbc</label><input type="text"
-                                                                                                           name="Fbc"
-                                                                                                           class="form-control"
-                                                                                                           value="140">
+                              <div class="form-group"><label class="control-label mb-10"> Blood Pressure <span class="text-danger">*</span></label><input
+                                type="text" name="bmi" class="form-control" [(ngModel)]="bloodPressure"></div>
+                              <div class="form-group"><label class="control-label mb-10">Heart Rate </label><input
+                                type="number" oninput="this.value = Math.abs(this.value)" min="0" name="hr" class="form-control" [(ngModel)]="hearthRate"></div>
+                              <div class="form-group"><label class="control-label mb-10">SpO2</label><input
+                                type="number" name="dob"  oninput="this.value = Math.abs(this.value)" class="form-control" [(ngModel)]="spO2">
                               </div>
-                              <div class="form-group"><label class="control-label mb-10">Created Date </label><input
-                                type="text" name="dob" id="editdob" readonly="" class="form-control" value="11/11/2019">
+                              <div class="form-group"><label class="control-label mb-10">Glucose Level </label><input
+                                type="number" name="dob" oninput="this.value = Math.abs(this.value)"  class="form-control" [(ngModel)]="glucoseLevel">
+                              </div>
+                              <div class="form-group"><label class="control-label mb-10">Body Temperature</label><input
+                                type="number" name="Weight"oninput="this.value = Math.abs(this.value)" class="form-control" [(ngModel)]="bodyTemperature"></div>
+
+                              <div class="form-group"><label class="control-label mb-10">Weight</label><input
+                                type="number" name="dob" oninput="this.value = Math.abs(this.value)" id="editdob"  class="form-control" [(ngModel)]="weight">
+                              </div>
+                              <div class="form-group"><label class="control-label mb-10">Height</label><input
+                                type="number" name="dob"  oninput="this.value = Math.abs(this.value)"  class="form-control" [(ngModel)]="height">
                               </div>
                             </div>
                             <div class="modal-footer text-center">
-                              <button type="submit" class="btn btn-outline btn-success ">Submit</button>
+                              <button type="submit" class="btn btn-outline btn-success " (click)="save()">Submit</button>
                             </div>
-                          </form>
                         </div>
                       </div>
                     </div>
@@ -164,100 +167,28 @@
                         <thead>
                         <tr>
                           <th>#</th>
-                          <th>Name</th>
-                          <th>BMI</th>
-                          <th class="text-center">Heart Rate</th>
-                          <th class="text-center">FBC Status</th>
+                          <th>Body Temperature</th>
+                          <th>Hearth Rate</th>
+                          <th class="text-center">Glucose Level</th>
+                          <th class="text-center">Blood Pressure</th>
+                          <th>Height</th>
                           <th>Weight</th>
-                          <th>Order date</th>
+                          <th>BMI</th>
+                          <th>SPO2</th>
                           <th>Action</th>
-                        </tr>
+                        </tr >
                         </thead>
                         <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Richard Wilson</td>
-                          <td>23.7</td>
-                          <td class="text-center">89</td>
-                          <td class="text-center">140</td>
-                          <td>74Kg</td>
-                          <td>11 Nov 2019 <span class="d-block text-info">10.00 AM</span></td>
-                          <td>
-                            <div class="table-action">
-                              <a href="#edit_medical_form" class="btn btn-sm bg-info-light" data-bs-toggle="modal">
-                                <i class="fas fa-edit"></i> Edit
-                              </a>
-                              <a href="javascript:void(0);" class="btn btn-sm bg-danger-light">
-                                <i class="fas fa-trash-alt"></i> Delete
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Champagne</td>
-                          <td>25.2</td>
-                          <td class="text-center">92</td>
-                          <td class="text-center">135</td>
-                          <td>73Kg</td>
-                          <td>3 Nov 2019 <span class="d-block text-info">11.00 AM</span></td>
-                          <td>
-                            <div class="table-action">
-                              <a href="#edit_medical_form" class="btn btn-sm bg-info-light" data-bs-toggle="modal">
-                                <i class="fas fa-edit"></i> Edit
-                              </a>
-                              <a href="javascript:void(0);" class="btn btn-sm bg-danger-light">
-                                <i class="fas fa-trash-alt"></i> Delete
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Vena</td>
-                          <td>24.5</td>
-                          <td class="text-center">90</td>
-                          <td class="text-center">125</td>
-                          <td>73.5Kg</td>
-                          <td>1 Nov 2019 <span class="d-block text-info">1.00 PM</span></td>
-                          <td>
-                            <div class="table-action">
-                              <a href="#edit_medical_form" class="btn btn-sm bg-info-light" data-bs-toggle="modal">
-                                <i class="fas fa-edit"></i> Edit
-                              </a>
-                              <a href="javascript:void(0);" class="btn btn-sm bg-danger-light">
-                                <i class="fas fa-trash-alt"></i> Delete
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>Tressie</td>
-                          <td>24.2</td>
-                          <td class="text-center">95</td>
-                          <td class="text-center">128</td>
-                          <td>10.2Kg</td>
-                          <td>30 Oct 2019 <span class="d-block text-info">9.00 AM</span></td>
-                          <td>
-                            <div class="table-action">
-                              <a href="#edit_medical_form" class="btn btn-sm bg-info-light" data-bs-toggle="modal">
-                                <i class="fas fa-edit"></i> Edit
-                              </a>
-                              <a href="javascript:void(0);" class="btn btn-sm bg-danger-light">
-                                <i class="fas fa-trash-alt"></i> Delete
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>Christopher</td>
-                          <td>24.7</td>
-                          <td class="text-center">99</td>
-                          <td class="text-center">122</td>
-                          <td>12.8Kg</td>
-                          <td>28 Oct 2019 <span class="d-block text-info">6.00 PM</span></td>
+                        <tr *ngFor="let vitals of this.data;let i = index">
+                          <td >{{i+1}}</td>
+                          <td>{{vitals.bodyTemperature}}</td>
+                          <td>{{vitals.heartRate}}</td>
+                          <td class="text-center">{{vitals.glucoseLevel}}</td>
+                          <td class="text-center">{{vitals.bloodPressure}}</td>
+                          <td>{{vitals.height}}</td>
+                          <td>{{vitals.weight}}</td>
+                          <td> <span class="d-block text-info">{{vitals.bmi | number:'1.0-2'}}</span></td>
+                          <td> <span class="d-block text-info">{{vitals.spO2}}</span></td>
                           <td>
                             <div class="table-action">
                               <a href="#edit_medical_form" class="btn btn-sm bg-info-light" data-bs-toggle="modal">

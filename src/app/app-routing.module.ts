@@ -7,16 +7,24 @@ import {DashboardComponent} from './component/dashboard/dashboard.component'
 import {ProfileComponent} from  './component/profile/profile.component'
 import {HealthVitalsComponent} from './component/health-vitals/health-vitals.component'
 import {ContactUsComponent} from './component/contact-us/contact-us.component'
+import {AppointmentsComponent} from './component/appointments/appointments.component'
+import {MedicineDosageComponent} from './component/medicine-dosage/medicine-dosage.component'
+import {AppointmentCreateComponent} from './component/appointment-create/appointment-create.component'
+import {AppointmentUpdateComponent} from './component/appointment-update/appointment-update.component'
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path:'home', component:HomeComponent},
   {path:'register', component:RegisterComponent},
   {path:'login', component:LoginComponent},
   {path:'dashboard', component:DashboardComponent},
   {path:'profile', component:ProfileComponent},
   {path:'health-vitals', component:HealthVitalsComponent},
-  {path:'contact-us',component:ContactUsComponent}
-
+  {path:'appointment', component:AppointmentsComponent},
+  {path:'medicine', component:MedicineDosageComponent},
+  {path:'contact-us',component:ContactUsComponent},
+  {path:'appointment-create',component:AppointmentCreateComponent},
+  {path:'appointment-update',component:AppointmentUpdateComponent}
 ];
 
 @NgModule({
