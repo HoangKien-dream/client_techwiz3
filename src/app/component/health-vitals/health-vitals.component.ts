@@ -60,8 +60,8 @@ export class HealthVitalsComponent implements OnInit {
     this.health.get(this.startDate)
       .subscribe({
         next:(res)=>{
-          this.data = res.data;
-          console.log(this.data)
+          this.data = res.data.items;
+          console.log(this.data.items)
         },
         error:(e)=> console.error(e)
       })

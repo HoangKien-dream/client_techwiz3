@@ -19,7 +19,7 @@ export class ProfileService {
   get():Observable<any>{
     return this.http.get(`${baseUrl}`,httpOptions)
   }
-  updated(id:any,data:any):Observable<any>{
-    return this.http.put(`${baseUrl}/${id}`,data,httpOptions)
+  updated(data:any):Observable<any>{
+    return this.http.put(`${baseUrl}`,data,httpOptions)
   }
 }

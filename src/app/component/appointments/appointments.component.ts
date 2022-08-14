@@ -1,6 +1,8 @@
 import {Component, OnInit, SimpleChange} from '@angular/core';
 import {AppointmentService} from '../../services/appointment.service'
 import {DatePipe} from "@angular/common";
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-appointments',
@@ -9,7 +11,9 @@ import {DatePipe} from "@angular/common";
 })
 export class AppointmentsComponent implements OnInit {
 
-  constructor(private appointment:AppointmentService) { }
+  constructor(private appointment:AppointmentService,
+              private router:Router,
+              private message:NzMessageService) { }
   id?:any
   address?:any
   note?:any
@@ -58,9 +62,16 @@ export class AppointmentsComponent implements OnInit {
       .subscribe({
          next:(res)=>{
            console.log(res)
-           window.location.reload()
+           this.message.success("Updated Success !!")
+           this.router.navigate(['appointment'])
+             .then(
+               ()=>window.location.reload()
+             )
          },
-        error:(e)=>console.log(e)
+        error:(e)=>{
+           this.message.error("Updated Failed")
+           console.log(e)
+        }
       })
   }
 

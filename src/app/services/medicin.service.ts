@@ -17,7 +17,11 @@ export class MedicinService {
 
   constructor(private http:HttpClient) { }
 
-  save(data:any){
+  save(data:any):Observable<any>{
     return this.http.post(`${baseUrl}`,data,httpOptions)
+  }
+
+  getAll(name:any,page:any,startDate:any,endDate:any):Observable<any>{
+    return this.http.get(`${baseUrl}?name=${name}&page=${page}&startDate=${startDate}&endDate=${endDate}`,httpOptions)
   }
 }

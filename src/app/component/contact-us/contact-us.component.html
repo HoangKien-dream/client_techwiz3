@@ -28,12 +28,12 @@
         <div class="contact-box flex-fill">
           <div class="infor-img">
             <div class="image-circle">
-              <i class="feather-phone"></i>
+              <i class="fa-solid fa-phone"></i>
             </div>
           </div>
           <div class="infor-details text-center">
             <label>Phone Number</label>
-            <p>+152 534-468-854</p>
+            <p>+84 98 670 345</p>
           </div>
         </div>
       </div>
@@ -41,12 +41,12 @@
         <div class="contact-box flex-fill">
           <div class="infor-img">
             <div class="image-circle bg-primary">
-              <i class="feather-mail"></i>
+              <i class="fa-solid fa-envelope"></i>
             </div>
           </div>
           <div class="infor-details text-center">
             <label>Email</label>
-            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fc9f9392889d9f88bc99849d918c9099d29f9391">[email&#160;protected]</a></p>
+            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fc9f9392889d9f88bc99849d918c9099d29f9391">doccare.hn@gmail.com</a></p>
           </div>
         </div>
       </div>
@@ -54,13 +54,12 @@
         <div class="contact-box flex-fill">
           <div class="infor-img">
             <div class="image-circle">
-              <i class="feather-map-pin"></i>
+              <i class="fa-solid fa-location-dot"></i>
             </div>
           </div>
           <div class="infor-details text-center">
             <label>Location</label>
-            <p>C/54 Northwest Freeway, Suite 558,
-              Houston, USA 485</p>
+            <p>Số 8A Tôn Thất Thuyết</p>
           </div>
         </div>
       </div>
@@ -75,37 +74,37 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <form action="">
+        <div style="width: 50%; margin-left:325px">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label>Your Name <span>*</span></label>
-                <input type="text" class="form-control">
+                <input type="text" required [(ngModel)]="name" class="form-control">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Your Email <span>*</span></label>
-                <input type="text" class="form-control">
+                <input type="text" [(ngModel)]="email" class="form-control">
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
                 <label>Subject</label>
-                <input type="text" class="form-control">
+                <input type="text" [(ngModel)]="subject" class="form-control">
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
                 <label>Comments <span>*</span></label>
-                <textarea class="form-control">
+                <textarea class="form-control" [(ngModel)]="messagebox">
 
 											</textarea>
               </div>
             </div>
           </div>
-          <button class="btn bg-primary">Send Message</button>
-        </form>
+          <button class="btn bg-primary" (click)="send()">Send Message</button>
+        </div>
       </div>
     </div>
   </div>
@@ -113,5 +112,5 @@
 
 
 <section class="contact-map d-flex">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.716346058072!2d-95.5565430855612!3d29.872453233633234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640cfe4516785ed%3A0x774974592a609121!2s54%20Northwest%20Fwy%20%23558%2C%20Houston%2C%20TX%2077040%2C%20USA!5e0!3m2!1sen!2sin!4v1631855334452!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0969666091723!2d105.78049781476332!3d21.02880578599839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4cd0c66f05%3A0xea31563511af2e54!2zOCBUw7RuIFRo4bqldCBUaHV54bq_dCwgTeG7uSDEkMOsbmgsIEPhuqd1IEdp4bqleSwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1660443789860!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>

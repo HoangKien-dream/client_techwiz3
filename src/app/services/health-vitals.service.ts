@@ -23,4 +23,7 @@ export class HealthVitalsService {
   create(data:any):Observable<any>{
      return this.http.post(`${baseUrl}`,data,httpOptions)
   }
+  getLast():Observable<any>{
+    return this.http.get(`${baseUrl}/new`,httpOptions)
+  }
 }

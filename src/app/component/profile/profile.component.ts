@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfileService} from '../../services/profile.service'
+import {format} from "date-fns";
 
 @Component({
   selector: 'app-profile',
@@ -36,7 +37,11 @@ export class ProfileComponent implements OnInit {
           this.mobile = res.data.mobile
           this.address = res.data.address
           this.city = res.data.city
-          this.bloodGroup = res.data.bloodGroup
+          if (res.data.bloodGroup != null){
+            this.bloodGroup = res.data.bloodGroup
+          }else {
+            this.bloodGroup = "A+"
+          }
           this.country = res.data.country
           this.gender = res.data.gender
         },
@@ -44,4 +49,30 @@ export class ProfileComponent implements OnInit {
       })
   }
 
+  save() {
+    var data = {
+      firstName:this.firstName,
+      lastName:this.lastName,
+      dateOfBirth:this.dob,
+      avatar:this.avatar,
+      mobile:this.mobile,
+      address:this.address,
+      city:this.city,
+      bloodGroup:this.bloodGroup,
+      country:this.country,
+      gender:this.gender
+    }
+    console.log(data)
+        this.profile.updated(data)
+          .subscribe({
+            next:(res)=>{
+              console.log(res)
+            },
+            error:(e)=>console.error(e)
+          })
+  }
+  onChange(result: Date): void {
+    this.dob = format(result,"yyyy-MM-dd")
+    console.log('onChange: ', result);
+  }
 }
