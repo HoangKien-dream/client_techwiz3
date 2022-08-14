@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfileService} from '../../services/profile.service'
 import {format} from "date-fns";
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +10,8 @@ import {format} from "date-fns";
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private profile:ProfileService) { }
+  constructor(private profile:ProfileService,
+              private router:Router) { }
   firstName?:any
   lastName?:any
   dob?:any
@@ -19,7 +21,7 @@ export class ProfileComponent implements OnInit {
   city?:any
   bloodGroup?:any
   country?:any
-  gender?:any
+  gender :any
 
   ngOnInit(): void {
     this.get()
@@ -43,8 +45,15 @@ export class ProfileComponent implements OnInit {
             this.bloodGroup = "A+"
           }
           this.country = res.data.country
-          this.gender = res.data.gender
-        },
+          if (res.data.gender=="MALE"){
+            this.gender = "1"
+          }
+          else if (res.data.gender=="FEMALE"){
+            this.gender = "0"
+          }
+          console.log(this.gender)
+        }
+        ,
         error:(e)=>console.error(e)
       })
   }
@@ -67,6 +76,7 @@ export class ProfileComponent implements OnInit {
           .subscribe({
             next:(res)=>{
               console.log(res)
+              window.location.reload()
             },
             error:(e)=>console.error(e)
           })

@@ -29,18 +29,18 @@
               <div class="card-header">
                 <h4 class="card-title float-start">Medical </h4>
               </div>
-              <div class="row">
-                 <div class="col">
-                   <input nz-input placeholder="Basic usage" [(ngModel)]="keyword" />
+              <div class="row" style="margin-top: 30px;margin-left: 12px">
+                 <div class="col-3">
+                   <input nz-input placeholder="Please input keyword" [(ngModel)]="keyword" />
                  </div>
-                <div class="col">
-                  <input nz-input placeholder="Basic usage" [(ngModel)]="startDate" />
+                <div class="col-2">
+                  <nz-range-picker  [nzFormat]="dateFormat"
+                                    [(ngModel)]="date"
+                                    [nzDateRender]=""
+                  ></nz-range-picker>
                 </div>
-                <div class="col">
-                  <input nz-input placeholder="Basic usage" [(ngModel)]="endDate" />
-                </div>
-                <div class="col">
-                  <button class="btn btn-facebook">Search</button>
+                <div class="col-1">
+                  <button class="btn btn-facebook" (click)="search()">Search</button>
                 </div>
               </div>
               <div class="card-body">
@@ -62,7 +62,7 @@
                           <td>{{appointment.id}}</td>
                           <td>{{appointment.address}}</td>
                           <td>{{appointment.note}}</td>
-                          <td class="text-center">{{appointment.bookingDate}}</td>
+                          <td class="text-center">{{appointment.bookingDate | date:"yyyy-MM-dd"}}</td>
                           <td>
                             <div class="table-action">
                               <button nz-button class="btn btn-sm bg-info-light" (click)="showModal(appointment)"><i class="fas fa-edit"></i> Edit</button>

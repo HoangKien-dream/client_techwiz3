@@ -3,6 +3,7 @@ import {AppointmentService} from '../../services/appointment.service'
 import {DatePipe} from "@angular/common";
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Router} from '@angular/router';
+import {format} from "date-fns";
 
 @Component({
   selector: 'app-appointments',
@@ -14,6 +15,7 @@ export class AppointmentsComponent implements OnInit {
   constructor(private appointment:AppointmentService,
               private router:Router,
               private message:NzMessageService) { }
+  dateFormat = "yyyy-MM-dd"
   id?:any
   address?:any
   note?:any
@@ -23,7 +25,7 @@ export class AppointmentsComponent implements OnInit {
   keyword=""
   data?:any
   isVisible: any;
-  date: any;
+  date=[]
   ngOnInit(): void {
     this.getAll()
   }
@@ -84,5 +86,16 @@ export class AppointmentsComponent implements OnInit {
   handleCancel(): void {
     console.log('Button cancel clicked!');
     this.isVisible = false;
+  }
+
+  search() {
+    console.log(this.date);
+    if (this.date.length>0 && this.date != null) {
+      this.startDate = format(this.date[0], 'dd-MM-yyyy')
+      this.endDate = format(this.date[1], 'dd-MM-yyyy')
+      console.log(this.startDate);
+      console.log(this.endDate);
+    }
+    this.getAll()
   }
 }

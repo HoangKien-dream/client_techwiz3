@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MedicinService} from '../../services/medicin.service'
+import {format} from "date-fns";
 
 @Component({
   selector: 'app-medicine-dosage-list',
@@ -14,6 +15,9 @@ data:any
   name=""
   startDate=""
   endDate=""
+  dateFormat="yyyy/MM/dd";
+  date = []
+
   ngOnInit(): void {
     this.getAll()
   }
@@ -28,4 +32,14 @@ getAll(){
       })
 }
 
+  search() {
+    console.log(this.date);
+    if (this.date.length>0 && this.date != null) {
+      this.startDate = format(this.date[0], 'dd-MM-yyyy')
+      this.endDate = format(this.date[1], 'dd-MM-yyyy')
+      console.log(this.startDate);
+      console.log(this.endDate);
+    }
+    this.getAll()
+  }
 }
