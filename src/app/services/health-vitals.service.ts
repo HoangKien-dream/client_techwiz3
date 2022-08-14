@@ -17,8 +17,8 @@ const httpOptions = {
 export class HealthVitalsService {
 
   constructor(private http:HttpClient) { }
-  get(starDate:any):Observable<any>{
-    return this.http.get(`${baseUrl}?startDate=${starDate}`,httpOptions)
+  get(starDate:any,endDate:any):Observable<any>{
+    return this.http.get(`${baseUrl}?startDate=${starDate}&endDate=${endDate}`,httpOptions)
   }
   create(data:any):Observable<any>{
      return this.http.post(`${baseUrl}`,data,httpOptions)

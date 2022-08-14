@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MedicinService} from '../../services/medicin.service'
 import {format} from "date-fns";
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-medicine-dosage',
@@ -18,7 +20,9 @@ export class MedicineDosageComponent implements OnInit {
   data:any
   reminderTimesSet:any
  json:any;
-  constructor(private medicin:MedicinService) { }
+  constructor(private medicin:MedicinService,
+              private message:NzMessageService,
+              private router:Router) { }
 
 
   ngOnInit(): void {
@@ -45,6 +49,10 @@ export class MedicineDosageComponent implements OnInit {
       .subscribe({
         next:(res)=>{
           console.log(res)
+          this.router.navigate(['medicine-list'])
+            .then(
+              ()=>window.location.reload()
+            )
         },
         error:(e)=>console.error(e)
       })

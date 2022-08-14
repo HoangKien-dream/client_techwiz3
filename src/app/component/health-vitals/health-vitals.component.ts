@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HealthVitalsService} from '../../services/health-vitals.service'
+import {format} from "date-fns";
 
 @Component({
   selector: 'app-health-vitals',
@@ -18,6 +19,9 @@ export class HealthVitalsComponent implements OnInit {
   weight?:any
   height?:any
   startDate = ""
+  endDate = ""
+  dateFormat="yyyy-MM-dd"
+  date=[]
   constructor(private health:HealthVitalsService) { }
 
   ngOnInit(): void {
@@ -57,7 +61,7 @@ export class HealthVitalsComponent implements OnInit {
       })
   }
   getAll(){
-    this.health.get(this.startDate)
+    this.health.get(this.startDate,this.endDate)
       .subscribe({
         next:(res)=>{
           this.data = res.data.items;
@@ -65,5 +69,16 @@ export class HealthVitalsComponent implements OnInit {
         },
         error:(e)=> console.error(e)
       })
+  }
+
+  search() {
+    console.log(this.date);
+    if (this.date.length>0 && this.date != null) {
+      this.startDate = format(this.date[0], 'dd-MM-yyyy')
+      this.endDate = format(this.date[1], 'dd-MM-yyyy')
+      console.log(this.startDate);
+      console.log(this.endDate);
+    }
+    this.getAll()
   }
 }
