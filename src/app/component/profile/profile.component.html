@@ -27,14 +27,7 @@
                   <div class="form-group">
                     <div class="change-avatar">
                       <div class="profile-img">
-                        <img src="{{avatar}}" alt="User Image">
-                      </div>
-                      <div class="upload-img">
-                        <div class="change-photo-btn">
-                          <span><i class="fa fa-upload"></i> Upload Photo</span>
-                          <input type="file" class="upload">
-                        </div>
-                        <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
+                        <img src="{{avatar == null ? 'https://cdn-icons-png.flaticon.com/512/219/219986.png' : avatar}}" alt="User Image">
                       </div>
                     </div>
                   </div>

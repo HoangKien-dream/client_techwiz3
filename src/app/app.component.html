@@ -68,7 +68,7 @@
       <li class="nav-item dropdown has-arrow logged-item" *ngIf="token!=null">
         <a  class="dropdown-toggle nav-link" id="toggle" onclick="myFunction()"
                                                              data-bs-toggle="dropdown" aria-expanded="false"><span
-        class="user-img"><img class="rounded-circle" src="{{data.avatar}}"
+        class="user-img"><img class="rounded-circle" src="{{data.avatar == null ? 'https://cdn-icons-png.flaticon.com/512/219/219986.png' : data.avatar}}"
                               width="31" alt="Ryan Taylor"></span></a>
         <div class="dropdown-menu dropdown-menu-end">
           <div class="user-header">
