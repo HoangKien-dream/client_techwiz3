@@ -88,8 +88,19 @@ export class AppointmentsComponent implements OnInit {
     this.isVisible = false;
   }
 
+  delete(id:any){
+    this.appointment.delete(id)
+      .subscribe({
+        next:(res)=>{
+          console.log(res)
+          window.location.reload()
+        },
+        error:(e)=>console.error(e)
+      })
+  }
+
+
   search() {
-    console.log(this.date);
     if (this.date.length>0 && this.date != null) {
       this.startDate = format(this.date[0], 'dd-MM-yyyy')
       this.endDate = format(this.date[1], 'dd-MM-yyyy')

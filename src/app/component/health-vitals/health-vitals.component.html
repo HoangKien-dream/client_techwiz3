@@ -91,6 +91,7 @@
                           <th>Weight</th>
                           <th>BMI</th>
                           <th>SPO2</th>
+                          <th>CreatedAt</th>
                           <th>Action</th>
                         </tr >
                         </thead>
@@ -99,12 +100,13 @@
                           <td >{{i+1}}</td>
                           <td style="display: flex">{{vitals.bodyTemperature}}  <span><p><sup>0</sup>C</p></span></td>
                           <td>{{vitals.heartRate}} Beats Per Minute</td>
-                          <td class="text-center">{{vitals.glucoseLevel}} Level</td>
+                          <td class="text-center">{{vitals.glucoseLevel}} mg/dL</td>
                           <td class="text-center">{{vitals.bloodPressure}} mm Hg</td>
                           <td>{{vitals.height}} cm</td>
                           <td>{{vitals.weight}} kg</td>
                           <td> <span class="d-block text-info">{{vitals.bmi | number:'1.0-2'}}</span></td>
                           <td> <span class="d-block text-info">{{vitals.spO2}}</span></td>
+                          <td> <span class="d-block text-info">{{vitals.updatedDate}}</span></td>
                           <td>
                             <div class="table-action">
                               <a href="#edit_medical_form" class="btn btn-sm bg-info-light" data-bs-toggle="modal">

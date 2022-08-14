@@ -77,8 +77,8 @@
                   <label>TimeSheet <span id="add" onclick="myFunction()" >+</span></label>
                   <div class="time-sheet">
                     <div style="display: flex;margin-bottom: 10px">
-                      <input nz-input width="20%" style="margin-right: 14px;"  [(ngModel)]="amount" placeholder="Please enter amout" nzSize="large" />
-                      <input nz-input  width="20%"  placeholder="Please enter time" [(ngModel)]="time" nzSize="large" />
+                      <input type="number" nz-input width="20%" style="margin-right: 14px;"  [(ngModel)]="amount" placeholder="Please enter amout" nzSize="large" />
+                      <nz-time-picker [(ngModel)]="time" (ngModelChange)="logTime($event)" style="width: 100%"></nz-time-picker>
                     </div>
 <!--                    <div>-->
 <!--                      <span *ngFor="let remi of this.data.reminderTimesSet">{{remi.time}}</span>-->

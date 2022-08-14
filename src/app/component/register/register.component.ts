@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service'
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,8 @@ import {AuthenticationService} from '../../services/authentication.service'
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private authentication:AuthenticationService) { }
+  constructor(private authentication:AuthenticationService,
+              private router:Router) { }
    email?:any
   password?:any
   ngOnInit(): void {
@@ -22,6 +24,7 @@ export class RegisterComponent implements OnInit {
       .subscribe({
         next: (res) =>{
           console.log(res);
+          this.router.navigate(['login'])
         },
         error: (e)=>console.error(e)
       })

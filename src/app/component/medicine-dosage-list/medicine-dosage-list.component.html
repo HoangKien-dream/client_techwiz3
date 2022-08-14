@@ -49,9 +49,12 @@
                         <tr>
                           <th>#</th>
                           <th>Name</th>
-                          <th>Duration</th>
                           <th class="text-center">Day</th>
                           <th class="text-center">Note</th>
+                          <th class="text-center">Start Date</th>
+                          <th class="text-center">Duration</th>
+                          <th class="text-center">Time</th>
+                          <th class="text-center">Amount</th>
                           <th>Action</th>
                         </tr >
                         </thead>
@@ -59,9 +62,12 @@
                         <tr *ngFor="let medician of this.data;let i = index">
                           <td >{{i+1}}</td>
                           <td>{{medician.name}}</td>
-                          <td>{{medician.duration}}</td>
                           <td class="text-center">{{medician.days}}</td>
                           <td class="text-center">{{medician.note}}</td>
+                          <td class="text-center">{{medician.startDate}}</td>
+                          <td class="text-center">{{medician.duration}}</td>
+                          <td class="text-center">{{medician.reminderTimesSet[0].time}}</td>
+                          <td class="text-center">{{medician.reminderTimesSet[0].amount}}</td>
                           <td>
                             <div class="table-action">
                               <a href="#edit_medical_form" class="btn btn-sm bg-info-light" data-bs-toggle="modal">

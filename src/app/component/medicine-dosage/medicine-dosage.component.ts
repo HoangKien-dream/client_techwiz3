@@ -16,7 +16,7 @@ export class MedicineDosageComponent implements OnInit {
   days:any
   note:any
   amount: any;
-  time: any;
+  time:any;
   data:any
   reminderTimesSet:any
  json:any;
@@ -32,6 +32,10 @@ export class MedicineDosageComponent implements OnInit {
     this.days = value.toString()
     console.log(value.toString());
   }
+  logTime(timea: Date): void {
+    localStorage.setItem("time",format(timea,"HH:mm:ss"))
+    // console.log(time.toTimeString().toString("HH:mm:ss"));
+  }
 
   save() {
     var data = {
@@ -42,9 +46,10 @@ export class MedicineDosageComponent implements OnInit {
       note:this.note,
       reminderTimesSet:[{
         amount:this.amount,
-        time:this.time
+        time:localStorage.getItem("time")
       }]
     }
+    console.log(data)
     this.medicin.save(data)
       .subscribe({
         next:(res)=>{

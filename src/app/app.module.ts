@@ -31,6 +31,7 @@ import {NzRadioModule} from "ng-zorro-antd/radio";
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { MedicineDosageListComponent } from './component/medicine-dosage-list/medicine-dosage-list.component';
 import {NzTabsModule} from "ng-zorro-antd/tabs";
+import {NzTimePickerModule} from "ng-zorro-antd/time-picker";
 
 
 registerLocaleData(en);
@@ -51,21 +52,22 @@ registerLocaleData(en);
     AppointmentUpdateComponent,
     MedicineDosageListComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NzModalModule,
-    NzInputModule,
-    NzDatePickerModule,
-    NzButtonModule,
-    NzCheckboxModule,
-    NzRadioModule,
-    NzMessageModule,
-    NzTabsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        NzModalModule,
+        NzInputModule,
+        NzDatePickerModule,
+        NzButtonModule,
+        NzCheckboxModule,
+        NzRadioModule,
+        NzMessageModule,
+        NzTabsModule,
+        NzTimePickerModule
+    ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })

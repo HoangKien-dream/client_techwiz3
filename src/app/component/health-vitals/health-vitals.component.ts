@@ -56,6 +56,7 @@ export class HealthVitalsComponent implements OnInit {
       .subscribe({
         next:(res)=>{
           console.log(res)
+          window.location.reload()
         },
         error:(e)=>console.error(e)
       })
@@ -65,11 +66,12 @@ export class HealthVitalsComponent implements OnInit {
       .subscribe({
         next:(res)=>{
           this.data = res.data.items;
-          console.log(this.data.items)
+          console.log(this.data)
         },
         error:(e)=> console.error(e)
       })
   }
+
 
   search() {
     console.log(this.date);

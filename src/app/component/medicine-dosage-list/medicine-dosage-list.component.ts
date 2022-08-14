@@ -33,7 +33,7 @@ getAll(){
 }
 
   search() {
-    console.log(this.date);
+    console.log(this.name)
     if (this.date.length>0 && this.date != null) {
       this.startDate = format(this.date[0], 'dd-MM-yyyy')
       this.endDate = format(this.date[1], 'dd-MM-yyyy')

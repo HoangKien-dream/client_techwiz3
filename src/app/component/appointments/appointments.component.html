@@ -58,11 +58,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr *ngFor="let appointment of this.data">
-                          <td>{{appointment.id}}</td>
+                        <tr *ngFor="let appointment of this.data;let i = index">
+                          <td>{{i+1}}</td>
                           <td>{{appointment.address}}</td>
                           <td>{{appointment.note}}</td>
-                          <td class="text-center">{{appointment.bookingDate | date:"yyyy-MM-dd"}}</td>
+                          <td class="text-center">{{appointment.bookingDate | date:"yyyy-MM-dd HH:mm:ss"}}</td>
                           <td>
                             <div class="table-action">
                               <button nz-button class="btn btn-sm bg-info-light" (click)="showModal(appointment)"><i class="fas fa-edit"></i> Edit</button>
@@ -81,7 +81,7 @@
                                   </div>
                                 </ng-container>
                               </nz-modal>
-                              <a href="javascript:void(0);" class="btn btn-sm bg-danger-light">
+                              <a (click)="delete(appointment.id)" class="btn btn-sm bg-danger-light">
                                 <i class="fas fa-trash-alt"></i> Delete
                               </a>
                             </div>
